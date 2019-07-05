@@ -305,24 +305,7 @@ HTML标签通常是成对出现的（<font color="blue">**双边标记**</font>�
 
 
 
-#### 使用`Emmet`插件快速生成html的骨架
-
-在Sublime Text中安装`Emmet`插件。
-
-新建html文件，输入`html:xt`，按`Tab`键后（或者按Ctrl+E），自动生成的代码如下：
-
-```html
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title>Document</title>
-</head>
-<body>
-
-</body>
-</html>
-```
+#### 使用`Emmet`插件快速生成html的
 
 新建html，输入`html:5`后，按 `Tab`键后，自动生成的代码如下：
 
