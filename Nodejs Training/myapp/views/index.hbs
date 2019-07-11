@@ -31,7 +31,7 @@ text</pre>
 <a href="https://www.google.com">This is a link</a>
 <br>
 <a href="http://www.baidu.com" target="_blank">点我点我</a>
-<img src="/images/123.png">
+<img src="/images/1.jpg">
 
 <!--Comment-->
 <ul>
@@ -135,7 +135,93 @@ text</pre>
 
 </table>
 
-<script>
-var result = 5 && 6; // 运算过程：true && true;
-    console.log('result：' + result); // 打印结果：6（也就是说最后面的那个值。）
+
+	
+
+<script type="text/javascript">
+var obj = new Object();
+	obj.name = "孙悟空";
+
+	var obj2 = obj;
+
+	//修改obj的name属性
+	obj.name = "猪八戒";
+console.log(obj);
+console.log(obj2);
 </script>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>SteTimeout</title>
+	<meta name="author" content="Administrator" />
+	<!-- Date: 2014-07-01 -->
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		.img{width:1002px;height:500px;border:0;}
+		.container{margin:0 auto;padding:0;width:1002px;height:500px;}
+		.content01{margin:100px auto;width:1002px;height:500px;background:pink;}
+		.content02{width:1002px;height:30px;position:absolute;top:570px;background:#A7C942;}
+		.ul{margin:0;padding:0;}
+		.ul li{width:167px;height:30px;float:left;list-style:none;text-align:center;line-height:30px;}
+	</style>
+	<script type="text/javascript">
+		var a=0;//全局变量
+		var arr=new Array(6);//创建数组对象，且设置长度
+		var run=true;//根据run的值来控制是否启动显示效果
+		for(var i=0;i<arr.length;i++){//遍历数组
+			arr[i]="images/"+i+".jpg";
+		}
+		window.οnlοad=start;//页面加载完成后，执行开始方法
+		function stop(){//结束滚动
+			run=false;
+			clearInterval(t);//结束，清楚由t引发的setInterval方法
+		}
+		function start(){//开始滚动
+			run=true;
+			t=setInterval(changeBox,1000);//使用setInterval方法，每一秒钟执行一次changeBox.
+		}
+		function liBox(){//下面滑块的动态显示，
+			for(var i=0;i<arr.length;i++){
+					if(i!=a){//如果不等于，那么背景为空；反之，则有背景
+						document.getElementById("li"+i).style.background="";
+					}else{document.getElementById("li"+a).style.background="#EAF2D3";}
+				}
+		}
+		function changeBox(){
+		if(run){//如果run==true,那么运行下面代码
+		var b=document.getElementById("images");
+			if(a>arr.length-1){
+				a=0;
+				b.src=arr[a];
+				liBox();
+				a++;
+			}else{
+				b.src=arr[a];
+				liBox();
+				a++;
+			}
+			}
+		}
+		function now(n){//当鼠标在滑块上时调用的党法
+			a=n;
+			liBox();
+			document.getElementById("images").src=arr[a];
+		}
+	</script>
+</head>
+<body>
+	<div class="container" onMouseMove="stop()" onMouseOut="start()">
+		<div class="content01"><img class="img" id="images" src="images/0.jpg" /></div>
+		<div class="content02">
+			<ul class="ul">
+				<li id="li0" οnmοusemοve="now(0)" style="background:#EAF2D3;">A</li>
+				<li id="li1" οnmοusemοve="now(1)">B</li>
+				<li id="li2" οnmοusemοve="now(2)">C</li>
+				<li id="li3" οnmοusemοve="now(3)">D</li>
+				<li id="li4" οnmοusemοve="now(4)">E</li>
+				<li id="li5" οnmοusemοve="now(5)">F</li>
+			</ul>
+		</div>
+	</div>
+</body>
+
